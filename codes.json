@@ -1,0 +1,11 @@
+{
+  "codes": {
+    "ABCDEF23": {
+      "tier": "beta",
+      "consumed": true,
+      "createdAt": "2026-10-18T05:02:30.192Z",
+      "expiresAt": null,
+      "consumedAt": "2026-10-18T05:02:38.288Z"
+    }
+  }
+}
