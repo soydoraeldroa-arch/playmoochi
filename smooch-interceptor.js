@@ -12,7 +12,7 @@
 
 (function () {
   // === CONFIGURATION ===
-  const VALIDATION_SERVER_URL = "https://your-server-url.com"; // Replace with your deployed server URL
+  const VALIDATION_SERVER_URL = "https://playmoochi-production.up.railway.app"; // Live Railway deployment
   const FIRESTORE_PATTERN = /firestore\.googleapis\.com\/v1\/projects\/smooch-game\/databases\/\(default\)\/documents\/invite_codes/;
 
   // Keep reference to original fetch
