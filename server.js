@@ -227,7 +227,8 @@ app.get("/api/admin/list", (req, res) => {
 
 // --- Start ---
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '127.0.0.1'; // Bind to localhost only for security
+// In production (Railway/Render), bind to 0.0.0.0. Override with HOST=localhost for local dev.
+const HOST = process.env.HOST || (process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1');
 app.listen(PORT, HOST, () => {
   console.log(`✅ Smooch validation server running on ${HOST}:${PORT}`);
   console.log(`   Health: http://${HOST}:${PORT}/api/health`);
@@ -235,5 +236,9 @@ app.listen(PORT, HOST, () => {
   if (process.env.ADMIN_SECRET) {
     console.log(`   Admin: POST http://${HOST}:${PORT}/api/admin/add (with x-admin-secret header)`);
   }
-  console.log(`   🔒 Bound to localhost only — not accessible from external networks`);
+  if (HOST === '127.0.0.1') {
+    console.log(`   🔒 Bound to localhost only — not accessible from external networks`);
+  } else {
+    console.log(`   🌍 Bound to all interfaces — accessible externally`);
+  }
 });
